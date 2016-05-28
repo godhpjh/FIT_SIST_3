@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="als.css" />
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.als-1.7.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $.ajax({
+          //url: 'https://api.instagram.com/v1/tags/태그명/media/recent?count=33&client_id=클라이언트-아이디',
+          url: 'https://api.instagram.com/v1/users/클라이언트-넘버-아이디/media/recent?client_id=클라이언트-아이디&count=33',
+          cache: false,
+          dataType: 'jsonp'
+        }).done(function( msg ) {
+          var result = new Array();         
+          $.each(msg.data, function(index, value) { 
+            var link = value.link;
+            var imageUrl = value.images.low_resolution.url;
+            var instaId = value.id;
+            result.push('<div class="multiple"><a href="'+link+'" target="_blank"><img border="0" src="'+imageUrl+'" width="210" /></a></div>');
+          });         
+          $(".slider").html(result.join(""));
+          $('.autoplay').slick({
+            dots: false,
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+          }); 
+        });         
+      });           
+    </script>
+  </head>
+  <body>
+ 
+    <div class="slider autoplay" style="height:210px;"></div>
+   
+  </body>
+</html>

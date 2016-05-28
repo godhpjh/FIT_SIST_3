@@ -1,4 +1,4 @@
-﻿
+
 /*=============================================================
     Authour URL: www.designbootstrap.com
     
@@ -83,15 +83,22 @@ header {
     padding: 10px;
     text-align: right;
 }
+/* Button Style */
 
-
-/* =============================================================
-   LOGO SECTION STYLES
- ============================================================ */
-.left-div {
-    padding-left: 30px;
-    margin-top: 40px;
-    margin-bottom: 30px;
+.button-style a {
+	display: block;
+	width: 11.250em;
+	height: 2.40em;
+	margin-top: 1.875em;
+	background: url(images/img03.jpg) repeat;
+	line-height: 3.125em;
+	text-align: center;
+	text-decoration: none;
+	text-transform: none;
+	font-family: 'Oswald', sans-serif;
+	font-size: 1.125em;
+	font-weight: 200;
+	color: #FFFFFF;isplay: block
 }
 
 .navbar-brand {
