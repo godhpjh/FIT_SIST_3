@@ -24,12 +24,11 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/img/logo.png" />
                 </a>
 
             </div>
 
-            <div class="left-div">
+            <!-- <div class="left-div">
                 <div class="user-settings-wrapper">
                     <ul class="nav">
 
@@ -61,7 +60,7 @@
 
                     </ul>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     
