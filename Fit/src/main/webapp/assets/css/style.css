@@ -1,335 +1,314 @@
-@import url(http://fonts.googleapis.com/css?family=Abel|Satisfy);
-@import url(http://fonts.googleapis.com/css?family=Oswald:400,300);
+﻿
+/*=============================================================
+    Authour URL: www.designbootstrap.com
+    
+    http://www.designbootstrap.com/
 
-/*
-	Untitled: A responsive HTML5 website template by HTML5Templates.com
-	Released for free under the Creative Commons Attribution 3.0 license (html5templates.com/license)
-	Visit http://html5templates.com for more great templates or follow us on Twitter @HTML5T
-*/
+    License: MIT
+
+    http://opensource.org/licenses/MIT
+
+    100% Free To use For Personal And Commercial Use.
+
+    IN EXCHANGE JUST TELL PEOPLE ABOUT THIS WEBSITE
+   
+========================================================  */
 
 
-/*********************************************************************************/
-/* Global                                                                        */
-/*********************************************************************************/
+/* =============================================================
+   GENERAL STYLES
+ ============================================================ */
 
-html, body {
-	height: 100%;
-}
+@import url(http://fonts.googleapis.com/css?family=Roboto); /* FREE GOOGLE FONT */
 
 body {
-	margin: 0em;
-	padding: 0em;
-	background: #202020 url(images/img01.jpg) repeat;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 10pt;
-	color: #525252;
+    font-family: 'Roboto', sans-serif;
+    line-height: 30px;
 }
 
-h1, h2, h3 {
-	margin: 0em;
-	padding: 0em;
-	font-family: 'Oswald', sans-serif;
-	font-weight: 300;
+.set-radius-zero {
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
 }
 
-p {
-	line-height: 170%;
+.content-wrapper {
+    margin-top: 40px;
+    min-height: 600px;
+    padding-bottom: 60px;
 }
 
-a {
-	color: #43A4D3;
+.page-head-line {
+    font-weight: 900;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #F0677C;
+    text-transform: uppercase;
+    color: #F0677C;
+    font-size: 20px;
+    margin-bottom: 40px;
 }
 
-strong {
-	font-weight: 700;
-	color: #2A2A2A;
+.btn {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
 }
 
-/* Copyright */
-
-#copyright {
-	overflow: hidden;
-	padding: 1.875em 0em;
-	border-top: 1px solid #303030;
-	text-align: center;
+.progress {
+    height: 8px;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
 }
-
-#copyright p {
-	font-family: 'Abel', sans-serif;
-	font-size: 1.125em;
-	color: #6A6A6A;
+.login-icon {
+    height: 60px;
+width: 60px;
+padding: 13px;
+border-radius: 50%;
+font-size: 30px;
+margin-bottom: 20px;
+color: #fff;
+text-align: center;
+cursor:pointer;
+background-color:#F0677C;
+-webkit-border-radius:50%;
+    -moz-border-radius:50%;
 }
-
-#copyright a {
-	color: #838383;
-}
-
-#copyright a:hover {
-	text-decoration: none;
-}
-
-
-/* Button Style */
-
-.button-style a {
-	display: block;
-	width: 11.250em;
-	height: 2.40em;
-	margin-top: 1.875em;
-	background: url(images/img03.jpg) repeat;
-	line-height: 3.125em;
-	text-align: center;
-	text-decoration: none;
-	text-transform: none;
-	font-family: 'Oswald', sans-serif;
-	font-size: 1.125em;
-	font-weight: 200;
-	color: #FFFFFF;
-}
-
-/* Button Style 2 */
-
-.button-style2 a {
-	display: inline-block;
-	height: 2.60em;
-	margin-top: 1.25em;
-	padding: 0em 2.25em 0em 1.25em;
-	background: url(images/img03.jpg) repeat right top;
-	border-radius: 5px;
-	line-height: 2.60em;
-	text-decoration: none;
-	font-size: 1em;
-	color: #FFFFFF;
+/* =============================================================
+   HEADER SECTION STYLES
+ ============================================================ */
+header {
+    background-color: #F0677C;
+    color: #fff;
+    padding: 10px;
+    text-align: right;
 }
 
 
-/** LIST STYLE 1 */
-
-ul.style1 {
-	margin: 0em;
-	list-style: none;
+/* =============================================================
+   LOGO SECTION STYLES
+ ============================================================ */
+.left-div {
+    padding-left: 30px;
+    margin-top: 40px;
+    margin-bottom: 30px;
 }
 
-ul.style1 li {
-	padding: 0.94em 0em;
-	border-top: 1px solid #E6E6E6;
+.navbar-brand {
+    width: 250px;
+    padding-top: 30px;
 }
 
-ul.style1 a {
-	display: block;
-	padding: 0em 0em 0em 1.87em;
-	background: url(images/img10.png) no-repeat left top;
-	text-decoration: none;
-	color: #525252;
+/* USER SETTINGS DIV */
+.user-settings-wrapper .nav > li > a {
+    position: relative;
+    display: block;
+    padding: 15px 18px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    background-color: #F0677C;
+    color: #fff;
 }
 
-ul.style1 a:hover {
-	text-decoration: underline;
+.user-settings-wrapper {
+    margin-top: 10px;
 }
 
-ul.style1 .first {
-	border-top: 0;
+    .user-settings-wrapper li {
+        display: inline-block;
+    }
+
+    .user-settings-wrapper .dropdown-settings {
+        width: 200px;
+        padding: 10px;
+    }
+
+    .user-settings-wrapper .nav > li > a:hover,.user-settings-wrapper .nav > li > a:focus {
+        text-decoration: none;
+        background-color: #C36464!important;
+    }
+
+    .user-settings-wrapper img {
+        height: 64px;
+        width: 64px;
+        border: 1px solid #000000;
+    }
+
+    .user-settings-wrapper .dropdown-menu {
+        margin: 0px;
+        border-radius: 0px!important;
+        -moz-border-radius: 0px!important;
+        -webkit-border-radius: 0px!important;
+    }
+
+    .user-settings-wrapper .btn {
+        border-radius: 0px!important;
+        -moz-border-radius: 0px!important;
+        -webkit-border-radius: 0px!important;
+    }
+
+    .user-settings-wrapper .media-heading {
+        padding-top: 10px;
+    }
+
+/* MENU LINKS SECTION*/
+
+.menu-section {
+    background-color: #3D3D3D;
 }
 
-/** LIST STYLE 2 */
-
-ul.style2 {
-	margin: 0em;
-	padding: 0em;
-	list-style: none;
+#menu-top a {
+    color: #FFF;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 10px 10px 10px;
+    text-transform: uppercase;
 }
 
-ul.style2 li {
-	padding: 1.25em 0em 2.5em 0em;
-	border-top: 1px solid #E6E6E6;
+.menu-top-active {
+    background-color: #C36464;
 }
 
-ul.style2 a {
-	text-decoration: none;
-	color: #525252;
+.menu-section .nav > li > a:hover,.menu-section .nav > li > a:focus {
+    background-color: #F0677C!important;
 }
 
-ul.style2 a:hover {
-	text-decoration: underline;
+.menu-section .dropdown-menu > li > a:hover,.menu-section .dropdown-menu > li > a:focus {
+    background-color: #F0677C!important;
 }
 
-ul.style2 .date {
-	display: inline-block;
-	margin: 0em 0em 1.56em 0em;
-	padding: 0.35em 0.63em;
-	background: url(images/img06.png) repeat;
-	border-radius: 5px;
-	letter-spacing: 0.06em;
-	line-height: none;
-	text-transform: none;
-	font-family: 'Oswald', sans-serif;
-	font-weight: 200;
-	color: #FFFFFF;
+.navbar-inverse {
+    background-color: #C36464;
+    border-color: transparent;
 }
 
-ul.style2 .date a {
-	color: #FFFFFF;
+.navbar-toggle {
+    background-color: #F0677C;
+    border: 1px solid #fff;
 }
 
-ul.style2 img {
-	float: left;
-	margin-right: 1.5em;
+.navbar {
+    margin-bottom: 0px;
+}
+/* =============================================================
+   FOOTER SECTION STYLES
+ ============================================================ */
+footer {
+    padding: 10px;
+    color: #fff;
+    font-size: 12px;
+    background-color: #C36464;
 }
 
-ul.style2 .first {
-	border-top: 0;
+    footer a, footer a:hover {
+        color: #fff;
+        text-decoration: none;
+    }
+
+/*==============================================
+    DASHBOARD  STYLES    
+ =============================================*/
+
+/* DASHBOARD ICONS */
+
+.bk-clr-one {
+    background-color: #B9B739;
 }
 
-/** LIST STYLE 3 */
-
-ul.style3 {
-	margin: 0em;
-	padding: 0em;
-	list-style: none;
+.bk-clr-two {
+    background-color: #F94C4C;
 }
 
-ul.style3 li {
-	padding: 1.25em 0em 1.56em 0em;
+.bk-clr-three {
+    background-color: #119c7e;
 }
 
-ul.style3 a {
-	display: block;
-	text-decoration: none;
-	color: #C18062;
+.bk-clr-four {
+    background-color: #b739b9;
 }
 
-ul.style3 a:hover {
-	text-decoration: underline;
+.dashboard-div-icon {
+    height: 75px;
+    width: 75px;
+    border: 2px solid #fff;
+    padding: 20px;
+    border-radius: 50%;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #fff;
 }
 
-ul.style3 .date {
+.dashboard-div-wrapper {
+    border-radius: 5px;
+    text-align: center;
+    padding: 15px;
+    color: #fff;
+    margin-bottom: 50px;
 }
 
-ul.style3 .date b {
+    .dashboard-div-wrapper .progress {
+        height: 2px;
+    }
+
+/* NOTICE BOARD */
+
+
+.notice-board .panel {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
 }
 
-ul.style3 .date a {
-	color: #FFFFFF;
+.notice-board ul {
+    padding-left: 0px;
+    list-style: none;
 }
 
-ul.style3 .date a:hover {
-	text-decoration: none;
+.notice-board li {
+    padding: 10px;
+    border-bottom: 1px solid #E5E5E5;
 }
 
-ul.style3 .first {
-	padding-top: 0em;
-	background: none;
+    .notice-board li span {
+        margin-right: 10px;
+        border: 1px solid #DBDBDB;
+        padding: 5px;
+    }
+
+    .notice-board li a, li a:hover {
+        text-decoration: none;
+        color: #000;
+    }
+
+/* SOCIAL BUTTONS */
+.btn-social {
+    color: white;
+    opacity: 0.8;
 }
 
-/** LIST STYLE 4 */
+    .btn-social:hover {
+        color: white;
+        opacity: 1;
+        text-decoration: none;
+    }
 
-ul.style4 {
-	margin: 0em;
-	padding: 0em;
-	list-style: none;
+.btn-facebook {
+    background-color: #3b5998;
 }
 
-ul.style4 li {
-	padding: 0.94em 0em 0.94em 0em;
-	border-top: 1px solid #742F0E;
+.btn-twitter {
+    background-color: #00aced;
 }
 
-ul.style4 a {
-	display: block;
-	padding: 0em 0em 0em 1.87em;
-	background: url(images/img10.png) no-repeat left top;
-	text-decoration: none;
-	color: #C18062;
+.btn-linkedin {
+    background-color: #0e76a8;
 }
 
-ul.style4 a:hover {
-	text-decoration: underline;
+.btn-google {
+    background-color: #c32f10;
 }
-
-ul.style4 li {
-	border-top: 0;
-}
-
-/** LIST STYLE 5 */
-
-ul.style5 {
-	overflow: hidden;
-	margin: 0em 0em 1em 0em;
-	padding: 0em;
-	list-style: none;
-}
-
-ul.style5 li {
-	float: left;
-	padding: 0.25em 0.25em;
-	line-height: 0;
-}
-
-ul.style5 a {
-}
-
-
-
-/** LIST STYLE 6 */
-
-ul.style6 {
-	margin: 0em;
-	padding: 0em;
-	list-style: none;
-}
-
-
-ul.style6 h3 {
-	margin: 0em;
-	padding: 0em 0em 0.63em 0em;
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: bold;
-	font-size: 1em;
-	color: #A0A09F;
-}
-
-ul.style6 p {
-	font-style: italic;
-	font-size: 0.87em;
-}
-
-ul.style6 li {
-	padding: 1.25em 0em 1.25em 0em;
-	border-top: 1px solid #303030;
-	line-height: 170%;
-}
-
-ul.style6 a {
-	display: block;
-	padding: 0em;
-	text-decoration: none;
-	color: #737373;
-}
-
-ul.style6 a:hover {
-	text-decoration: underline;
-}
-
-ul.style6 .first {
-	padding-top: 0em;
-	border-top: 0;
-}
-
-
-
-.balloon {
-	padding: 1.87em;
-	background: url(images/img08.jpg) repeat left top;
-	border-radius: 5px;
-	line-height: 180%;
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: 1.2em;
-	font-style: italic;
-}
-
-.ballon-bgbtm {
-	height: 1.87em;
-	background: url(images/img09.png) no-repeat right top;
-}
-
-

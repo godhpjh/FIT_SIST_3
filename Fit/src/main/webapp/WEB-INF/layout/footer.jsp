@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div id="footer-wrapper">
+<!-- <div id="footer-wrapper">
 	<div class="5grid-layout">
 		<div class="row" id="footer-content">
 			<div class="3u" id="box1">
@@ -76,6 +76,6 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 </body>
 </html>
