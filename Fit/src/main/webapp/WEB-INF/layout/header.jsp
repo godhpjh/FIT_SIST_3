@@ -20,8 +20,8 @@
 							<ul>
 								<li class="current_page_item"><a href="main.do">Homepage</a></li>
 								<li><a href="col3.do">Three Column</a></li>
-								<li><a href="col2_1.do">Two Column #1</a></li>
-								<li><a href="col2_2.do">Two Column #2</a></li>
+								<li><a href="col2_1.do">Two Column</a></li>
+								<li><a href="themaPage.do">Thema</a></li>
 								<li><a href="col1.do">One Column</a></li>
 							</ul>
 						</nav>

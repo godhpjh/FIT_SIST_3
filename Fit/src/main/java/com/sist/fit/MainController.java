@@ -18,9 +18,9 @@ public class MainController {
 	public String col1(){
 		return "temp/col1";
 	}
-	@RequestMapping("col2_1.do")
+	@RequestMapping("themaPage.do")
 	public String col2_1(){
-		return "temp/col2_1";
+		return "temp/themaPage";
 	}
 	@RequestMapping("col2_2.do")
 	public String col2_2(){
