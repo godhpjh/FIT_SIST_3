@@ -81,7 +81,7 @@
 						<!-- End Item -->
 
 						<div class="item">
-							<img src="assets/img/여수.jpg">
+							<img src="./assets/img/여수.jpg">
 							<div class="carousel-caption">
 								<h4>
 									<a href="#">tempor invidunt ut labore et dolore</a>
@@ -393,7 +393,8 @@
 			</div>
 		</div>
 		<article>
-		<div id="map" style="width: 100%; height: 700px;"></div>
+		<jsp:include page="../../map/map.jsp"></jsp:include>
+		<!-- <div id="map" style="width: 100%; height: 700px;"></div> -->
 		<!-- 
 
 		<script type="text/javascript"
@@ -467,7 +468,7 @@
 			</script> -->
 
 
-			<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=cdcb15981eecc6effefb51aa33302b28&libraries=services"></script>
+			<!-- <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=cdcb15981eecc6effefb51aa33302b28&libraries=services"></script>
 <script>
 // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 var infowindow = new daum.maps.InfoWindow({zIndex:1});
@@ -511,7 +512,7 @@ function displayMarker(place) {
         infowindow.open(map, marker);
     });
 }
-</script>
+</script> -->
 
 
 		</article>
