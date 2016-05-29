@@ -198,8 +198,8 @@ header {
 }
 
 .navbar-header h1{color:black; text-align: center;}
-.navbar-header a{text-align: center; color:white; text-decoration: none; }
-
+.navbar-header a{text-align: center; color:white; text-decoration: none; margin-left: 50px; margin-right: 0;}
+.navbar-header img{width: 100px; height: 50px; text-align: center;}
 .navbar {
     margin-bottom: 0px;
     height: 6¤¼`0px;
