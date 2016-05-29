@@ -18,14 +18,9 @@
     <div class="navbar navbar-inverse set-radius-zero">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <a class="navbar-brand" href="index.html">
+               		<h5>FIT</h5>
                 </a>
-
             </div>
 
             <!-- <div class="left-div">
@@ -68,13 +63,12 @@
     <section class="menu-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a  class="menu-top-active" href="index.html">메인</a></li>
                             <li><a href="table.html">시즌별</a></li>
                             <li><a href="forms.html">테마별</a></li>
-                            <li><a href="ui.html"></a>여행추천</li>
+                            <li><a href="ui.html">여행추천</a></li>
                         </ul>
                     </div>
                 </div>

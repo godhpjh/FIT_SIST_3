@@ -351,3 +351,6 @@ footer {
 	.carousel-caption p,
 	#myCarousel .list-group {display:none;} 
 }
+
+.container .item img{height: 505px;}
+
