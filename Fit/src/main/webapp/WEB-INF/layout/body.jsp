@@ -354,8 +354,8 @@
 					<div class="col-md-6">
 						<!-- 다음지도 -->
 						<div class="alert alert-danger">
-							<div id="map" style="width: 100%; height: 700px;"></div>
-							<!-- <div id="map_canvas" style="width:100%; height:700px"></div> -->
+							<!-- <div id="map" style="width: 100%; height: 700px;"></div> -->
+							<div id="map_canvas" style="width:100%; height:700px"></div>
 						</div>
 						<hr />
 
@@ -365,8 +365,8 @@
 		</div>
 		
 <article>
-	<jsp:include page="../../map/map.jsp"></jsp:include>
-	<%-- <jsp:include page="../../map/testt.jsp"></jsp:include> --%>
+	<%-- <jsp:include page="../../map/map.jsp"></jsp:include> --%>
+	<jsp:include page="../../map/testt.jsp"></jsp:include>
 </article>
 </body>
 </html>

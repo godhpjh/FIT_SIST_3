@@ -69,7 +69,7 @@ function NewControl(controlDiv, map) {
 
 function initialize(){
 	
-	alert(11);
+		
 	 	var latlng = new google.maps.LatLng(37.5640220, 126.9995940);
 	 	var myOptions = {
 		  	zoom: 13,
@@ -87,7 +87,7 @@ function initialize(){
 		
 		
 		// 원래 마커클러스터링이 되어야 하는데.........
-		alert(22);
+		
 		//markerCluster = new MarkerClusterer(map,markers);
 		// 위에서 생성한 markerCluster 변수에 MarkerClusterer 오브젝트를 생성합니다.
 		
