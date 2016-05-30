@@ -23,14 +23,14 @@
 <body>
 
 	<div class="container">
-	
+
 		<!-- <div class="row">
 				<div class="col-md-12">
 					<div class="page-head-line">여행관련 빅데이터 통계</div>
 				</div>
 				
 			</div> -->
-			
+
 		<div class="row">
 			<br>
 			<div class="col-md-3 col-sm-3 col-xs-6">
@@ -204,20 +204,18 @@
 					</table>
 				</div>
 			</div>
-			
+
 			<!-- 다음지도 -->
 			<div class="col-md-6">
 				<div class="notice-board">
 					<div class="panel panel-default">
-						<div class="panel-heading">
-							전국관광명소 추천
-						</div>
+						<div class="panel-heading">전국관광명소 추천</div>
 						<div class="panel-body">
 							<div id="aaaa" style="width: 100%; height: 650px;">지도</div>
-												<script type="text/javascript"
-		src="//apis.daum.net/maps/maps3.js?apikey=cdcb15981eecc6effefb51aa33302b28&libraries=services"></script>
+							<script type="text/javascript"
+								src="//apis.daum.net/maps/maps3.js?apikey=cdcb15981eecc6effefb51aa33302b28&libraries=services"></script>
 
-	<script>
+							<script>
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 		var infowindow = new daum.maps.InfoWindow({
 			zIndex : 1
@@ -295,9 +293,7 @@
 		}
 	</script>
 						</div>
-						<div class="panel-footer">
-							푸터
-						</div>
+						<div class="panel-footer">푸터</div>
 					</div>
 				</div>
 				<hr />
@@ -305,7 +301,12 @@
 			</div>
 		</div>
 		<hr />
-	
+
 	</div>
+
+	<article>
+		<jsp:include page="../../map/map.jsp"></jsp:include>
+		<%-- <jsp:include page="../../map/testt.jsp"></jsp:include> --%>
+	</article>
 </body>
 </html>

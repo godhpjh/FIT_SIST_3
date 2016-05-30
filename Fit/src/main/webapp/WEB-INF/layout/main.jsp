@@ -18,12 +18,7 @@
 <link href="assets/css/style.css" rel="stylesheet" />
 
 </head>
-
-
-
-<body class="homepage">
-
-
+<body>
 	<!-- Header -->
 	<tiles:insertAttribute name="header" />
 
