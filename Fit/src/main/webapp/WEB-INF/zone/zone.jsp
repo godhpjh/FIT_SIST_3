@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script src="assets/js/insta.js"></script>
 </head>
 <body>
 	<div class="content-wrapper">
@@ -42,19 +43,94 @@
 											<div class="panel panel-default">
 												<div class="panel-heading">많이찾는명소</div>
 												<div class="panel-body">
-													<p>원형차트로 뿌리기?</p>
+													<div id="donutchart" style="width: 100%; height: 350px;"></div>
 												</div>
 												<div class="panel-footer">Panel Footer</div>
 											</div>
 										</div>
 										<div class="col-md-6 col-sm-6">
 											<div class="panel panel-primary">
-												<div class="panel-heading">유명 음식점?</div>
+												<div class="panel-heading">맛집 지도</div>
 												<div class="panel-body">
 													<div id="aaaa" style="width: 100%; height: 350px;">지도</div>
-												<script type="text/javascript"
-		src="//apis.daum.net/maps/maps3.js?apikey=cdcb15981eecc6effefb51aa33302b28&libraries=services"></script>
+													<script type="text/javascript"
+														src="//apis.daum.net/maps/maps3.js?apikey=cdcb15981eecc6effefb51aa33302b28&libraries=services"></script>
 
+
+												</div>
+
+												<div class="panel-footer">Panel Footer</div>
+											</div>
+										</div>
+
+										<div class="col-md-4 col-sm-4">
+											<div class="panel panel-info">
+												<div class="panel-heading">워드클라우드</div>
+												<div class="panel-body">
+													<p>워드클라우드</p>
+												</div>
+												<div class="panel-footer">Panel Footer</div>
+											</div>
+										</div>
+
+										<div class="col-md-4 col-sm-4">
+											<div class="panel panel-warning">
+												<div class="panel-heading">누구랑?</div>
+												<div class="panel-body">
+													<p>누구랑</p>
+												</div>
+												<div class="panel-footer">Panel Footer</div>
+											</div>
+										</div>
+
+										<div class="col-md-4 col-sm-4">
+											<div class="panel panel-danger">
+												<div class="panel-heading">날씨?</div>
+												<div class="panel-body">
+													<p>계절날씨?</p>
+												</div>
+												<div class="panel-footer">Panel Footer</div>
+											</div>
+										</div>
+
+										<div class="col-md-12 col-sm-12">
+											<div class="panel panel-danger">
+												<div class="panel-heading">#서울관광</div>
+												<div class="panel-body">
+													<div id="seoul"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="tab-pane fade" id="tab2default"></div>
+									<div class="tab-pane fade" id="tab3default">Default 3</div>
+									<div class="tab-pane fade" id="tab4default">Default 4</div>
+									<div class="tab-pane fade" id="tab4default">Default 5</div>
+									<div class="tab-pane fade" id="tab4default">Default 6</div>
+									<div class="tab-pane fade" id="tab4default">Default 7</div>
+									<div class="tab-pane fade" id="tab4default">Default 8</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		InstagramScroll({
+			tag : '서울관광',
+			imageSize : 200,
+			clientID : 'c64c6f7b9c374d29967626c71c4e075b',
+			imageContainer : '#seoul',
+			includeCaption : true
+		});
+	</script>
+	
 	<script>
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 		var infowindow = new daum.maps.InfoWindow({
@@ -117,72 +193,31 @@
 			});
 		}
 	</script>
-												
-												</div>
-												
-												<div class="panel-footer">Panel Footer</div>
-											</div>
-										</div>
-
-										<div class="col-md-4 col-sm-4">
-											<div class="panel panel-info">
-												<div class="panel-heading">워드클라우드</div>
-												<div class="panel-body">
-													<p>워드클라우드</p>
-												</div>
-												<div class="panel-footer">Panel Footer</div>
-											</div>
-										</div>
-
-										<div class="col-md-4 col-sm-4">
-											<div class="panel panel-warning">
-												<div class="panel-heading">누구랑?</div>
-												<div class="panel-body">
-													<p>누구랑</p>
-												</div>
-												<div class="panel-footer">Panel Footer</div>
-											</div>
-										</div>
-
-										<div class="col-md-4 col-sm-4">
-											<div class="panel panel-danger">
-												<div class="panel-heading">날씨?</div>
-												<div class="panel-body">
-													<p>계절날씨?</p>
-												</div>
-												<div class="panel-footer">Panel Footer</div>
-											</div>
-										</div>
-
-										<div class="col-md-12 col-sm-12">
-											<div class="panel panel-danger">
-												<div class="panel-heading">#서울관광</div>
-												<div class="panel-body">
-													<p>뉴스</p>
-												</div>
-											</div>
-										</div>
-									</div>
-
-
-									<div class="tab-pane fade" id="tab2default"></div>
-									<div class="tab-pane fade" id="tab3default">Default 3</div>
-									<div class="tab-pane fade" id="tab4default">Default 4</div>
-									<div class="tab-pane fade" id="tab4default">Default 5</div>
-									<div class="tab-pane fade" id="tab4default">Default 6</div>
-									<div class="tab-pane fade" id="tab4default">Default 7</div>
-									<div class="tab-pane fade" id="tab4default">Default 8</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<article>
 	
-	</article>
+	 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+												
+	
 </body>
 </html>
