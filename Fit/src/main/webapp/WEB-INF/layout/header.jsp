@@ -32,9 +32,9 @@
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                             <li><a href="main.do">메인</a></li>
-                            <li><a href="season.do">계절별</a></li>
-                            <li><a href="theme.do">테마별</a></li>
-                            <li><a href="zone.do">지역별</a></li>
+                            <li><a href="season.do">계절</a></li>
+                            <li><a href="theme.do">테마</a></li>
+                            <li><a href="zone.do">추천</a></li>
                         </ul>
                     </div>
 

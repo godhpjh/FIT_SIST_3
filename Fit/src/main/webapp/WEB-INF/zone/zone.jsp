@@ -6,8 +6,164 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+
+
 <script src="assets/js/insta.js"></script>
 <script src="assets/js/jquery.instagram-tag.js"></script>
+<script src="http://code.jquery.com/jquery-1.7.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script>
+	jQuery(document).ready(function($) {
+	  $.ajax({
+	  	// 결과를 한글로 받을 수 있다.
+	  url : "http://api.wunderground.com/api/9ef27c47e035094d/geolookup/conditions/lang:KR/q/Korea/Seoul.json",
+	  dataType : "jsonp",
+	  success : function(parsed_json) {
+	  	 // location
+	  	 var location = parsed_json.location;
+	  	 var location_s = "<p>국가명(country_name):  "+location.country_name+"</p>";
+	  	 location_s+= "<p>도시명(city_name):  "+location.city+"</p>";
+	  	 location_s+= "<p>경도(lat):  "+location.lat+"</p>";
+	  	 location_s+= "<p>위도(lon):  "+location.lon+"</p>";
+		 $("#locationinfo").append(location_s);
+	  	 // 관측지에 대한 정보
+	  	 var observ = parsed_json.current_observation;
+	  	 var observ_s = "<p>관측지 주소 전체 : "+observ.display_location.full+"</p>";
+	  	 observ_s += "<p>관측지 주소 국가 : "+observ.display_location.state_name+"</p>";
+	  	 observ_s += "<p>관측지 주소 도시 : "+observ.display_location.city+"</p>";
+	  	 observ_s += "<p>관측지 경도(latitude) : "+observ.display_location.latitude+"</p>";
+		 observ_s += "<p>관측지 위도(longitude) : "+observ.display_location.longitude+"</p>";
+		 observ_s += "<p>관측지 해발고도(elevation) : "+observ.display_location.elevation+"</p>";
+		 $("#observinfo").append(observ_s);
+		// 날씨정보
+		 var weather_s = "<p>업데이트 정보:  "+observ.observation_time+"</p>";
+		 weather_s +="<p>현재 날씨 :  "+observ.weather+"</p>";
+		 weather_s +="<p>현재 온도 화씨(섭씨):  "+observ.temperature_string+"</p>";
+		 weather_s +="<p>현재 온도 화씨:  "+observ.temp_f+"</p>";
+		 weather_s +="<p>현재 온도 섭씨:  "+observ.temp_c+"</p>";
+		 weather_s +="<p>상대 습도 :  "+observ.relative_humidity+"</p>";
+		 weather_s +="<p>바람 정보 전체 :  "+observ.wind_string+"</p>";
+		 weather_s +="<p>풍향 :  "+observ.wind_dir+"</p>";
+		 weather_s +="<p>풍속 (mph):  "+observ.wind_mph+"</p>";
+		 weather_s +="<p>풍속 (kph):  "+observ.wind_kph+"</p>";
+		 weather_s +="<p>자외선 양:  "+observ.UV+"</p>";
+		 weather_s +="<p>아이콘 : "+observ.icon+"</p>";
+		 weather_s +="<p>아이콘 그림 :  "+"<img src='"+observ.icon_url+"'/></p>";
+		 $("#weatherinfo").append(weather_s);
+	  }
+	  });
+	});
+	</script>
+<script>
+	function displayCw(xml) {
+		var output = '';
+		var buildDate = 'Update: ' + $(xml).find('lastBuildDate').text();
+		var location = 'Location: '
+				+ $(xml).find('yweather\\:location, location').attr('country')
+				+ ' '
+				+ $(xml).find('yweather\\:location, location').attr('city');
+		var wind = 'Wind: ' + '[냉기]'
+				+ $(xml).find('yweather\\:wind, wind').attr('chill') + ', [방향]'
+				+ $(xml).find('yweather\\:wind, wind').attr('direction')
+				+ ', [속도]' + $(xml).find('yweather\\:wind, wind').attr('speed');
+		var atmosphere = '대기: '
+				+ '[습도]'
+				+ $(xml).find('yweather\\:atmosphere, atmosphere').attr(
+						'humidity')
+				+ ', [시야]'
+				+ $(xml).find('yweather\\:atmosphere, atmosphere').attr(
+						'visibility')
+				+ ', [기압]'
+				+ $(xml).find('yweather\\:atmosphere, atmosphere').attr(
+						'pressure');
+		var astronomy = '일출/일몰: '
+				+ '[일출]'
+				+ $(xml).find('yweather\\:astronomy, astronomy')
+						.attr('sunrise') + ', [일몰]'
+				+ $(xml).find('yweather\\:astronomy, astronomy').attr('sunset');
+		var cur = '현재 날씨: ' + '[상태]'
+				+ $(xml).find('yweather\\:condition, condition').attr('text')
+				+ ', [온도]'
+				+ $(xml).find('yweather\\:condition, condition').attr('temp')
+				+ 'C';
+		var curImg = 'http://l.yimg.com/a/i/us/we/52/'
+				+ $(xml).find('yweather\\:condition, condition').attr('code')
+				+ '.gif';
+
+		output += '<h5>' + buildDate + '</h5>';
+		output += '<h5>' + location + '</h5>';
+		output += '<h5>' + wind + '</h5>';
+		output += '<h5>' + atmosphere + '</h5>';
+		output += '<h5>' + astronomy + '</h5><br><br>';
+
+		output += '<img src=\"'+curImg+'\" width="60">';
+		output += '<h5>' + cur + '</h5>';
+
+		$('#cw').html(output);
+	};
+	function displayFw(xml) {
+		var output = '';
+		var weeks = $(xml).find('yweather\\:forecast, forecast');
+		weeks.each(function(index, item) {
+			with (item) {
+				var day = $(this).attr('day');
+				var date = $(this).attr('date');
+				var low = $(this).attr('low');
+				var high = $(this).attr('high');
+				var text = $(this).attr('text');
+				var code = $(this).attr('code');
+				var curImg = 'http://l.yimg.com/a/i/us/we/52/' + code + '.gif';
+				output += '<div id="weeks">';
+				output += '<h3>' + day + '(' + date + ')</h3>';
+				output += '<h5>' + text + '</h5>';
+				output += '<img src="'+curImg+'">';
+				output += '<h5>최저: ' + low + ' / 최고: ' + high + 'C</h5>';
+				output += '</div>';
+
+			}
+		});
+		$('#fw').html(output);
+
+		//alert(day.length);
+	};
+	function displayMap(xml) {
+		var output = '';
+		var plat = $(xml).find('geo\\:lat, lat').text();
+		var plong = $(xml).find('geo\\:long, long').text();
+
+		var center = new google.maps.LatLng(plat, plong);
+		var mapArea = document.querySelector('#map'); //google map은 jQuery사용안됨.
+		var map = new google.maps.Map(mapArea, {
+			mapTypeId : google.maps.MapTypeId.ROADMAP,
+			zoom : 10,
+			center : center
+		}); //(어디에 지도를 뿌릴 것인지, 옵션)
+
+		var marker = new google.maps.Marker({
+			position : center,
+			title : "Hello"
+		});
+		marker.setMap(map);
+	};
+
+	function requestAjax() {
+		var uri = 'http://weather.yahooapis.com/forecastrss?w=1132599&u=c';
+		$.ajax({
+			url : uri, //type 디폴트는 GET 방식
+			success : function(xml) {
+				displayCw(xml);
+				displayFw(xml);
+				displayMap(xml);
+			}
+		});
+	};
+	$(document).ready(function() {
+
+		requestAjax();
+
+	});
+</script>
+
 
 
 <script
@@ -247,7 +403,7 @@
 														</div>
 													</div>
 
-								
+
 													<div id="map"
 														style="float: left; width: 600px; height: 600px;"></div>
 													<div id="directionsPanel" style="float: right; width: 30%;"></div>
@@ -261,11 +417,40 @@
 										</div>
 
 									</div>
-									<div class="tab-pane fade" id="tab4default">Default 4</div>
-									<div class="tab-pane fade" id="tab5default">Default 5</div>
-									<div class="tab-pane fade" id="tab6default">Default 6</div>
-									<div class="tab-pane fade" id="tabdefault">Default 7</div>
-									<div class="tab-pane fade" id="tab8default">Default 8</div>
+									<div class="tab-pane fade" id="tab4default">
+										<div id="content">
+											<div data-role="page">
+
+												<div data-role="header">
+													<h1>Wunderground - 박창주</h1>
+												</div>
+												<!-- /header -->
+
+												<div data-role="content">
+													<p>
+													<h1>서울의 현재 날씨</h1>
+													</p>
+													<div id="locationinfo">
+														<h2>위치정보</h2>
+													</div>
+													<div id="observinfo">
+														<h2>관측지 정보</h2>
+													</div>
+													<div id="weatherinfo">
+														<h2>날씨 정보</h2>
+													</div>
+												</div>
+												<!-- /content -->
+
+											</div>
+											<!-- /page -->
+										</div>
+
+										<div class="tab-pane fade" id="tab5default">Default 5</div>
+										<div class="tab-pane fade" id="tab6default">Default 6</div>
+										<div class="tab-pane fade" id="tabdefault">Default 7</div>
+										<div class="tab-pane fade" id="tab8default">Default 8</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -274,6 +459,9 @@
 			</div>
 		</div>
 	</div>
+
+
+
 
 	<script>
 		InstagramScroll({
@@ -383,7 +571,5 @@
 			chart.draw(data, options);
 		}
 	</script>
-
-
 </body>
 </html>

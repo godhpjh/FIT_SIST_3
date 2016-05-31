@@ -13,10 +13,13 @@
 <script src="assets/js/jquery-1.11.1.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/main.js"></script>
+<link href="assets/css/bootstrap.css" rel="stylesheet" />
+
 
 <!-- 구글차트_보영 -->
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
     
     //1번차트
     
@@ -32,7 +35,6 @@
         ]);
 
         var options1 = {
-        		backgroundColor:'none',
           title: '',
           hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
           vAxis: {minValue: 20000}
@@ -69,8 +71,8 @@
 						chart2.draw(data2, options2);
 					} */
 				</script>
-				
-				
+
+
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script type="text/javascript">
@@ -83,6 +85,86 @@ $(function () {
                       ];
     $(document).ready(function () {
         $('#container').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: [{
+                categories: categories,
+                reversed: false,
+                labels: {
+                    step: 1
+                }
+            }, { // mirror axis on right side
+                opposite: true,
+                reversed: false,
+                categories: categories,
+                linkedTo: 0,
+                labels: {
+                    step: 1
+                }
+            }],
+            yAxis: {
+                title: {
+                    text: null
+                },
+                labels: {
+                    formatter: function () {
+                        return this.value;
+                    }
+                }
+            },
+
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
+                        'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
+                }
+            },
+
+            series: [{
+                name: '입국자',
+                data: [
+						<c:forEach var="vo" items="${inoutlist}">
+							-<c:out value="${vo.sleep}"/>,
+						</c:forEach>
+                       ]
+            }, {
+                name: '출국자',
+                data: [
+						<c:forEach var="vo" items="${inoutlist}">
+						<c:out value="${vo.total}"/>,
+						</c:forEach>
+                       ]
+            }]
+        });
+    });
+
+});
+
+</script>
+
+<script type="text/javascript">
+$(function () {
+    // Age categories
+    var categories = [
+						<c:forEach var="vo" items="${inoutlist}">
+                      	<c:out value="${vo.year}"/>,
+                      </c:forEach>
+                      ];
+    $(document).ready(function () {
+        $('#container1').highcharts({
             chart: {
                 type: 'bar'
             },
@@ -176,20 +258,39 @@ $(function () {
 				<div class="dashboard-div-wrapper bk-clr-one">
 					<i class="fa fa-venus dashboard-div-icon"></i>
 					<h5>국내 여행 동향</h5>
-					<div id="chart_div" style="width: 400px; height: 400px;"></div>
-
+					<div id="chart_div"
+						style="width:300px; height:300px; margin: 0 auto"></div>
 				</div>
 			</div>
-			
-			
+
+
 			<div class="col-md-3 col-sm-3 col-xs-6">
 				<div class="dashboard-div-wrapper bk-clr-two">
-					<i class="fa fa-edit dashboard-div-icon"></i>
-					<h5>입출국 동향</h5>
-					<!-- <div id="columnchart_material" style="width: 400px; height: 400px;"></div> -->
-					<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+					<i class="fa fa-edit dashboard-div-icon"></i> <a
+						data-toggle="modal" class="btn" href="#MapModal">
+						<h5>입출국 동향</h5>
+					</a>
+
+					<div id="container"
+						style="width: 300px; height: 300px; margin: 0 auto"></div>
+
+
+					<div class="modal" id="MapModal">
+
+						<div class="modal-header">
+							<h5>입출국 동향</h5>
+							<br>
+							<button type="button" class="close" data-dismiss="modal">닫기</button>
+						</div>
+						<div class="modal-body" style="text-align: center;">
+							<div id="container1"
+								style="width: 800px; height: auto; margin: 0 auto"></div>
+
+						</div>
+					</div>
 				</div>
 			</div>
+
 			<div class="col-md-3 col-sm-3 col-xs-6">
 				<div class="dashboard-div-wrapper bk-clr-three">
 					<i class="fa fa-cogs dashboard-div-icon"></i>
@@ -202,6 +303,7 @@ $(function () {
 					<h5>Simple Text Here</h5>
 				</div>
 			</div>
+
 			<div class="col-md-3 col-sm-3 col-xs-6">
 				<div class="dashboard-div-wrapper bk-clr-four">
 					<i class="fa fa-bell-o dashboard-div-icon"></i>
@@ -436,7 +538,7 @@ $(function () {
 		<hr />
 
 	</div>
-<%-- 
+	<%-- 
 	<article>
 		<jsp:include page="../../map/map.jsp"></jsp:include>
 		<jsp:include page="../../map/testt.jsp"></jsp:include>

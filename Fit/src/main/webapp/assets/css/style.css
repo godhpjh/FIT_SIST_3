@@ -106,6 +106,10 @@ header {
     padding-top: 30px;
 }
 
+.row .modal button {color:white;}
+.row .modal .button a{color:white;} 
+.row .modal h5 {color:white; font-size: 30px;}
+
 /* USER SETTINGS DIV */
 .user-settings-wrapper .nav > li > a {
     position: relative;
@@ -202,7 +206,7 @@ header {
 .navbar-header img{width: 100px; height: 50px; text-align: center;}
 .navbar {
     margin-bottom: 0px;
-    height: 6¤¼`0px;
+    height: 6ï¿½ï¿½`0px;
 }
 /* =============================================================
    FOOTER SECTION STYLES
