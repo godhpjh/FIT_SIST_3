@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.sist.main.data.TourDTO;
-import com.sist.main.data.TourManager;
+import com.sist.data.TourDTO;
+import com.sist.data.TourManager;
 
 
 
@@ -23,7 +23,7 @@ public class MainController {
 	@RequestMapping("main.do")
 	public String main_page(Model model) throws Exception{
 		
-		List<TourDTO> tlist=tmgr.tourYearData();		//1.국내여행동향인원수
+		List<TourDTO> tlist=tmgr.tourYearData();		//1.국내여행동향인원수d
 		List<TourDTO> inoutlist=tmgr.tourInOutData();	//2.입국출국인원수
 		
 		for(TourDTO t:tlist){
