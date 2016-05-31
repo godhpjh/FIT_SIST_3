@@ -16,7 +16,6 @@ $(function () {
 	google.charts.load('current', {'packages':['corechart','bar']});
     google.charts.setOnLoadCallback(drawChartPie);
     function drawChartPie() {
-
       var data = google.visualization.arrayToDataTable([
         ['Task', 'Hours per Day'],
         ['Work',     11],
@@ -25,13 +24,10 @@ $(function () {
         ['Watch TV', 2],
         ['Sleep',    7]
       ]);
-
       var options = {
         title: 'My Daily Activities'
       };
-
       var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
       chart.draw(data, options);
     }
 	
@@ -45,7 +41,6 @@ $(function () {
         ['2016', 660, 1120, 300],
         ['2017', 1030, 540, 350]
       ]);
-
       var options = {
         chart: {
           title: 'Company Performance',
@@ -53,9 +48,7 @@ $(function () {
         },
         bars: 'horizontal' // Required for Material Bar Charts.
       };
-
       var chart = new google.charts.Bar(document.getElementById('barchart_material'));
-
       chart.draw(data, options);
     }
 	
@@ -70,12 +63,10 @@ $(function () {
         ['Watch TV', 2],
         ['Sleep',    7]
       ]);
-
       var options = {
         title: 'My Daily Activities',
         pieHole: 0.4,
       };
-
       var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
       chart.draw(data, options);
     }
@@ -147,46 +138,38 @@ $(function () {
     });
     
     $('#container1').highcharts({
-
         chart: {
             polar: true,
             type: 'line'
         },
-
         title: {
             text: 'Budget vs spending',
             x: -80
         },
-
         pane: {
             size: '80%'
         },
-
         xAxis: {
             categories: ['Sales', 'Marketing', 'Development', 'Customer Support',
                     'Information Technology', 'Administration'],
             tickmarkPlacement: 'on',
             lineWidth: 0
         },
-
         yAxis: {
             gridLineInterpolation: 'polygon',
             lineWidth: 0,
             min: 0
         },
-
         tooltip: {
             shared: true,
             pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
         },
-
         legend: {
             align: 'right',
             verticalAlign: 'top',
             y: 70,
             layout: 'vertical'
         },
-
         series: [{
             name: 'Allocated Budget',
             data: [43000, 19000, 60000, 35000, 17000, 10000],
@@ -196,7 +179,6 @@ $(function () {
             data: [50000, 39000, 42000, 31000, 26000, 14000],
             pointPlacement: 'on'
         }]
-
     });
     
     
