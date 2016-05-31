@@ -14,6 +14,147 @@
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/main.js"></script>
 
+<!-- 구글차트_보영 -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    
+    //1번차트
+    
+      google.charts.load('current', {'packages':['corechart']});
+     google.charts.setOnLoadCallback(drawChart1); 
+ 
+      function drawChart1() {
+        var data1 = google.visualization.arrayToDataTable([
+          ['Year', '국내여행인원수', '숙박여행','당일치기'],
+          <c:forEach var="vo" items="${tlist}">
+          ['<c:out value="${vo.year}"/>', <c:out value="${vo.total}"/>, <c:out value="${vo.sleep}"/>,<c:out value="${vo.oneday}"/>],
+          </c:forEach>
+        ]);
+
+        var options1 = {
+        		backgroundColor:'none',
+          title: '',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 20000}
+        };
+
+        var chart1 = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart1.draw(data1, options1);
+      
+      }
+        		
+				/* 	//2번차트
+					google.charts.load('current', {'packages' : [ 'bar' ]});
+					google.charts.setOnLoadCallback(drawChart2);
+
+					function drawChart2() {
+						var data2 = google.visualization.arrayToDataTable([
+								[ 'Year', 'in', 'out' ],
+								<c:forEach var="vo" items="${inoutlist}">[
+										'<c:out value="${vo.year}"/>',
+										'<c:out value="${vo.sleep}"/>',
+										'<c:out value="${vo.total}"/>'],
+								</c:forEach> ]);
+
+						var options2 = {
+							chart : {
+								title : 'Company Performance',
+								subtitle : 'Sales, Expenses, and Profit: 2014-2017',
+							}
+						};
+
+						var chart2 = new google.charts.Bar(document
+								.getElementById('columnchart_material'));
+
+						chart2.draw(data2, options2);
+					} */
+				</script>
+				
+				
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript">
+$(function () {
+    // Age categories
+    var categories = [
+						<c:forEach var="vo" items="${inoutlist}">
+                      	<c:out value="${vo.year}"/>,
+                      </c:forEach>
+                      ];
+    $(document).ready(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: [{
+                categories: categories,
+                reversed: false,
+                labels: {
+                    step: 1
+                }
+            }, { // mirror axis on right side
+                opposite: true,
+                reversed: false,
+                categories: categories,
+                linkedTo: 0,
+                labels: {
+                    step: 1
+                }
+            }],
+            yAxis: {
+                title: {
+                    text: null
+                },
+                labels: {
+                    formatter: function () {
+                        return this.value;
+                    }
+                }
+            },
+
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
+                        'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
+                }
+            },
+
+            series: [{
+                name: '입국자',
+                data: [
+						<c:forEach var="vo" items="${inoutlist}">
+							-<c:out value="${vo.sleep}"/>,
+						</c:forEach>
+                       ]
+            }, {
+                name: '출국자',
+                data: [
+						<c:forEach var="vo" items="${inoutlist}">
+						<c:out value="${vo.total}"/>,
+						</c:forEach>
+                       ]
+            }]
+        });
+    });
+
+});
+
+</script>
+
+
+
 <!-- css -->
 <link href="assets/css/bootstrap.css" rel="stylesheet" />
 <link href="assets/css/font-awesome.css" rel="stylesheet" />
@@ -21,40 +162,32 @@
 
 </head>
 <body>
-
 	<div class="container">
 
-		<!-- <div class="row">
-				<div class="col-md-12">
-					<div class="page-head-line">여행관련 빅데이터 통계</div>
-				</div>
-				
-			</div> -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="page-head-line">여행관련 빅데이터 통계</div>
+			</div>
+		</div>
 
 		<div class="row">
 			<br>
 			<div class="col-md-3 col-sm-3 col-xs-6">
 				<div class="dashboard-div-wrapper bk-clr-one">
 					<i class="fa fa-venus dashboard-div-icon"></i>
-					<div class="progress progress-striped active">
-						<div class="progress-bar progress-bar-warning" role="progressbar"
-							aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-							style="width: 80%"></div>
+					<h5>국내 여행 동향</h5>
+					<div id="chart_div" style="width: 400px; height: 400px;"></div>
 
-					</div>
-					<h5>국내 입국자 수</h5>
 				</div>
 			</div>
+			
+			
 			<div class="col-md-3 col-sm-3 col-xs-6">
 				<div class="dashboard-div-wrapper bk-clr-two">
 					<i class="fa fa-edit dashboard-div-icon"></i>
-					<div class="progress progress-striped active">
-						<div class="progress-bar progress-bar-danger" role="progressbar"
-							aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
-							style="width: 70%"></div>
-
-					</div>
-					<h5>Simple Text Here</h5>
+					<h5>입출국 동향</h5>
+					<!-- <div id="columnchart_material" style="width: 400px; height: 400px;"></div> -->
+					<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-3 col-xs-6">
@@ -303,10 +436,10 @@
 		<hr />
 
 	</div>
-
+<%-- 
 	<article>
 		<jsp:include page="../../map/map.jsp"></jsp:include>
-		<%-- <jsp:include page="../../map/testt.jsp"></jsp:include> --%>
-	</article>
+		<jsp:include page="../../map/testt.jsp"></jsp:include>
+	</article> --%>
 </body>
 </html>

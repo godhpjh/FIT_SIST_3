@@ -12,6 +12,8 @@
     <!-- CUSTOM STYLE  -->
     <link href="assets/css/style.css" rel="stylesheet" />
 
+
+
 </head>
 <body>
     <div class="navbar navbar-inverse set-radius-zero">

@@ -69,7 +69,6 @@ function NewControl(controlDiv, map) {
 
 function initialize(){
 	
-	alert(11);
 	 	var latlng = new google.maps.LatLng(37.5640220, 126.9995940);
 	 	var myOptions = {
 		  	zoom: 13,
