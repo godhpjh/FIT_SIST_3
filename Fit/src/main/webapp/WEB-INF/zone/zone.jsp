@@ -19,10 +19,10 @@
 
 	function initialize() {
 		directionsDisplay = new google.maps.DirectionsRenderer();
-		var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+		var chicago = new google.maps.LatLng(37.555104, 126.936839);
 		var mapOptions = {
 			zoom : 7,
-			center : chicago
+			center : seoul
 		}
 		map = new google.maps.Map(document.getElementById("map"), mapOptions);
 		directionsDisplay.setMap(map);
@@ -232,19 +232,29 @@
 										<div class="panel panel-danger">
 											<div class="panel-heading">#여행지검색</div>
 											<div class="panel-body">
-												<div id="panel">
-													<b>Start: </b> <input type="text" id="start" /> <b>End:
-													</b> <input type="text" id="end" />
-													<div>
-														<strong>Mode of Travel: </strong> <select id="mode">
-														</select> <input type="button" value="길찾기"
-															onclick="Javascript:calcRoute();" />
+												<div class="col-md-12">
+													<div id="panel">
+														<b>Start: </b> <input type="text" id="start" /> <b>End:
+														</b> <input type="text" id="end" />
+														<div>
+															<strong>Mode of Travel: </strong> <select id="mode">
+																<option value="DRIVING">Driving</option>
+																<option value="WALKING">Walking</option>
+																<option value="BICYCLING">Bicycling</option>
+																<option value="TRANSIT">Transit</option>
+															</select> <input type="button" value="길찾기"
+																onclick="Javascript:calcRoute();" />
+														</div>
 													</div>
-												</div>
-												<div class="panel-footer">
-													<div id="map" style="float: left; width: 600px; height: 600px;"></div>
+
+								
+													<div id="map"
+														style="float: left; width: 600px; height: 600px;"></div>
 													<div id="directionsPanel" style="float: right; width: 30%;"></div>
+
 												</div>
+
+												<div class="panel-footer"></div>
 
 											</div>
 
