@@ -24,12 +24,11 @@
 
 	<div class="container">
 
-		<!-- <div class="row">
-				<div class="col-md-12">
-					<div class="page-head-line">여행관련 빅데이터 통계</div>
-				</div>
-				
-			</div> -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="page-head-line">여행관련 빅데이터 통계</div>
+			</div>
+		</div>
 
 		<div class="row">
 			<br>
@@ -303,10 +302,10 @@
 		<hr />
 
 	</div>
-
+<%-- 
 	<article>
 		<jsp:include page="../../map/map.jsp"></jsp:include>
-		<%-- <jsp:include page="../../map/testt.jsp"></jsp:include> --%>
-	</article>
+		<jsp:include page="../../map/testt.jsp"></jsp:include>
+	</article> --%>
 </body>
 </html>

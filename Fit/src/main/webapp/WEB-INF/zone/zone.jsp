@@ -97,14 +97,94 @@
 											<div class="panel panel-danger">
 												<div class="panel-heading">#서울관광</div>
 												<div class="panel-body">
-													<div id="seoul"></div>
+													<div class="col-md-12">
+														<div class="col-md-3">
+															<div id="seoul"></div>
+														</div>
+													</div>
+												</div>
+												<div class="panel-footer">
+													푸터푸터
 												</div>
 											</div>
 										</div>
 									</div>
 
 
-									<div class="tab-pane fade" id="tab2default"></div>
+									<div class="tab-pane fade" id="tab2default">
+									<div class="col-md-6 col-sm-6">
+											<div class="panel panel-default">
+												<div class="panel-heading">많이찾는명소</div>
+												<div class="panel-body">
+													<div id="donutchart" style="width: 100%; height: 350px;"></div>
+												</div>
+												<div class="panel-footer">Panel Footer</div>
+											</div>
+										</div>
+										<div class="col-md-6 col-sm-6">
+											<div class="panel panel-primary">
+												<div class="panel-heading">맛집 지도</div>
+												<div class="panel-body">
+													<div id="aaaa" style="width: 100%; height: 350px;">지도</div>
+													<script type="text/javascript"
+														src="//apis.daum.net/maps/maps3.js?apikey=cdcb15981eecc6effefb51aa33302b28&libraries=services"></script>
+
+
+												</div>
+
+												<div class="panel-footer">Panel Footer</div>
+											</div>
+										</div>
+
+										<div class="col-md-4 col-sm-4">
+											<div class="panel panel-info">
+												<div class="panel-heading">워드클라우드</div>
+												<div class="panel-body">
+													<p>워드클라우드</p>
+												</div>
+												<div class="panel-footer">Panel Footer</div>
+											</div>
+										</div>
+
+										<div class="col-md-4 col-sm-4">
+											<div class="panel panel-warning">
+												<div class="panel-heading">누구랑?</div>
+												<div class="panel-body">
+													<p>누구랑</p>
+												</div>
+												<div class="panel-footer">Panel Footer</div>
+											</div>
+										</div>
+
+										<div class="col-md-4 col-sm-4">
+											<div class="panel panel-danger">
+												<div class="panel-heading">날씨?</div>
+												<div class="panel-body">
+													<p>계절날씨?</p>
+												</div>
+												<div class="panel-footer">Panel Footer</div>
+											</div>
+										</div>
+										<div>
+											<div class="panel panel-danger">
+												<div class="panel-heading">#인천여행</div>
+												<div class="panel-body">
+													<!-- <div class="col-md-12">
+														<div class="col-md-3"> -->
+															<div id="incheon"></div>
+														<!-- </div>
+													</div> -->
+												</div>
+												<div class="panel-footer">
+													푸터푸터
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									
+									
+									</div>
 									<div class="tab-pane fade" id="tab3default">Default 3</div>
 									<div class="tab-pane fade" id="tab4default">Default 4</div>
 									<div class="tab-pane fade" id="tab4default">Default 5</div>
@@ -127,10 +207,23 @@
 			imageSize : 200,
 			clientID : 'c64c6f7b9c374d29967626c71c4e075b',
 			imageContainer : '#seoul',
-			includeCaption : true
+			includeCaption : false
 		});
 	</script>
 	
+	<script>
+		InstagramScroll({
+			
+			tag: '인천여행',
+			imageSize : 200,
+			clientID : 'c64c6f7b9c374d29967626c71c4e075b',
+			imageContainer : '#incheon',
+			includeCaption : true
+			
+			
+		});
+	</script>
+
 	<script>
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 		var infowindow = new daum.maps.InfoWindow({
@@ -193,9 +286,10 @@
 			});
 		}
 	</script>
-	
-	 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
+
+	<script type="text/javascript"
+		src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
       google.charts.load("current", {packages:["corechart"]});
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
@@ -217,7 +311,7 @@
         chart.draw(data, options);
       }
     </script>
-												
-	
+
+
 </body>
 </html>
