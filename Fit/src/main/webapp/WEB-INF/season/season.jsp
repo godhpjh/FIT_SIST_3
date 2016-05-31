@@ -106,11 +106,11 @@
 											</div>
 										</div>
 									</div>
-									<div class="tab-pane fade" id="tab2default">
-										
-									</div>
-									<div class="tab-pane fade" id="tab3default">Default 3</div>
-									<div class="tab-pane fade" id="tab4default">Default 4</div>
+									
+									
+									<div class="tab-pane fade" id="tab2default">여름</div>
+									<div class="tab-pane fade" id="tab3default">가을</div>
+									<div class="tab-pane fade" id="tab4default">겨울</div>
 								</div>
 							</div>
 						</div>
