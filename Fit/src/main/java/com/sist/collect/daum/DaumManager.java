@@ -38,4 +38,6 @@ public class DaumManager {
 			ex.printStackTrace();
 		}
 	}
+	
+	
 }

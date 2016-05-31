@@ -14,6 +14,147 @@
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/main.js"></script>
 
+<!-- 구글차트_보영 -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    
+    //1번차트
+    
+      google.charts.load('current', {'packages':['corechart']});
+     google.charts.setOnLoadCallback(drawChart1); 
+ 
+      function drawChart1() {
+        var data1 = google.visualization.arrayToDataTable([
+          ['Year', '국내여행인원수', '숙박여행','당일치기'],
+          <c:forEach var="vo" items="${tlist}">
+          ['<c:out value="${vo.year}"/>', <c:out value="${vo.total}"/>, <c:out value="${vo.sleep}"/>,<c:out value="${vo.oneday}"/>],
+          </c:forEach>
+        ]);
+
+        var options1 = {
+        		backgroundColor:'none',
+          title: '',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 20000}
+        };
+
+        var chart1 = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart1.draw(data1, options1);
+      
+      }
+        		
+				/* 	//2번차트
+					google.charts.load('current', {'packages' : [ 'bar' ]});
+					google.charts.setOnLoadCallback(drawChart2);
+
+					function drawChart2() {
+						var data2 = google.visualization.arrayToDataTable([
+								[ 'Year', 'in', 'out' ],
+								<c:forEach var="vo" items="${inoutlist}">[
+										'<c:out value="${vo.year}"/>',
+										'<c:out value="${vo.sleep}"/>',
+										'<c:out value="${vo.total}"/>'],
+								</c:forEach> ]);
+
+						var options2 = {
+							chart : {
+								title : 'Company Performance',
+								subtitle : 'Sales, Expenses, and Profit: 2014-2017',
+							}
+						};
+
+						var chart2 = new google.charts.Bar(document
+								.getElementById('columnchart_material'));
+
+						chart2.draw(data2, options2);
+					} */
+				</script>
+				
+				
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript">
+$(function () {
+    // Age categories
+    var categories = [
+						<c:forEach var="vo" items="${inoutlist}">
+                      	<c:out value="${vo.year}"/>,
+                      </c:forEach>
+                      ];
+    $(document).ready(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: ''
+            },
+            xAxis: [{
+                categories: categories,
+                reversed: false,
+                labels: {
+                    step: 1
+                }
+            }, { // mirror axis on right side
+                opposite: true,
+                reversed: false,
+                categories: categories,
+                linkedTo: 0,
+                labels: {
+                    step: 1
+                }
+            }],
+            yAxis: {
+                title: {
+                    text: null
+                },
+                labels: {
+                    formatter: function () {
+                        return this.value;
+                    }
+                }
+            },
+
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + ', age ' + this.point.category + '</b><br/>' +
+                        'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
+                }
+            },
+
+            series: [{
+                name: '입국자',
+                data: [
+						<c:forEach var="vo" items="${inoutlist}">
+							-<c:out value="${vo.sleep}"/>,
+						</c:forEach>
+                       ]
+            }, {
+                name: '출국자',
+                data: [
+						<c:forEach var="vo" items="${inoutlist}">
+						<c:out value="${vo.total}"/>,
+						</c:forEach>
+                       ]
+            }]
+        });
+    });
+
+});
+
+</script>
+
+
+
 <!-- css -->
 <link href="assets/css/bootstrap.css" rel="stylesheet" />
 <link href="assets/css/font-awesome.css" rel="stylesheet" />
@@ -21,40 +162,32 @@
 
 </head>
 <body>
-
 	<div class="container">
-	
-		<!-- <div class="row">
-				<div class="col-md-12">
-					<div class="page-head-line">여행관련 빅데이터 통계</div>
-				</div>
-				
-			</div> -->
-			
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="page-head-line">여행관련 빅데이터 통계</div>
+			</div>
+		</div>
+
 		<div class="row">
 			<br>
 			<div class="col-md-3 col-sm-3 col-xs-6">
 				<div class="dashboard-div-wrapper bk-clr-one">
 					<i class="fa fa-venus dashboard-div-icon"></i>
-					<div class="progress progress-striped active">
-						<div class="progress-bar progress-bar-warning" role="progressbar"
-							aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-							style="width: 80%"></div>
+					<h5>국내 여행 동향</h5>
+					<div id="chart_div" style="width: 400px; height: 400px;"></div>
 
-					</div>
-					<h5>국내 입국자 수</h5>
 				</div>
 			</div>
+			
+			
 			<div class="col-md-3 col-sm-3 col-xs-6">
 				<div class="dashboard-div-wrapper bk-clr-two">
 					<i class="fa fa-edit dashboard-div-icon"></i>
-					<div class="progress progress-striped active">
-						<div class="progress-bar progress-bar-danger" role="progressbar"
-							aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
-							style="width: 70%"></div>
-
-					</div>
-					<h5>Simple Text Here</h5>
+					<h5>입출국 동향</h5>
+					<!-- <div id="columnchart_material" style="width: 400px; height: 400px;"></div> -->
+					<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-3 col-xs-6">
@@ -204,20 +337,96 @@
 					</table>
 				</div>
 			</div>
-			
+
 			<!-- 다음지도 -->
 			<div class="col-md-6">
 				<div class="notice-board">
 					<div class="panel panel-default">
-						<div class="panel-heading">
-							전국관광명소 추천
-						</div>
+						<div class="panel-heading">전국관광명소 추천</div>
 						<div class="panel-body">
-							지도 부분
+							<div id="aaaa" style="width: 100%; height: 650px;">지도</div>
+							<script type="text/javascript"
+								src="//apis.daum.net/maps/maps3.js?apikey=cdcb15981eecc6effefb51aa33302b28&libraries=services"></script>
+
+							<script>
+		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+		var infowindow = new daum.maps.InfoWindow({
+			zIndex : 1
+		});
+
+		var mapContainer = document.getElementById('aaaa'), // 지도를 표시할 div 
+		mapOption = {
+			center : new daum.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+			level : 10
+		// 지도의 확대 레벨
+		};
+
+		// 지도를 생성합니다    
+		var map = new daum.maps.Map(mapContainer, mapOption);
+
+		// 장소 검색 객체를 생성합니다
+		var ps = new daum.maps.services.Places();
+
+		// 키워드로 장소를 검색합니다
+		ps.keywordSearch('관광지', placesSearchCB);
+		/* ps.keywordSearch('서울 관광지', placesSearchCB);
+		ps.keywordSearch('인천 관광지', placesSearchCB);
+		ps.keywordSearch('경기도 관광지', placesSearchCB);
+		ps.keywordSearch('전라북도 관광지', placesSearchCB);
+		ps.keywordSearch('전라남도 관광지', placesSearchCB);
+		ps.keywordSearch('경상남도 관광지', placesSearchCB);
+		ps.keywordSearch('경상북도 관광지', placesSearchCB);
+		ps.keywordSearch('충청남도 관광지', placesSearchCB);
+		ps.keywordSearch('충청북도 관광지', placesSearchCB);
+		ps.keywordSearch('제주도 관광지', placesSearchCB);
+		ps.keywordSearch('부산 관광지', placesSearchCB);
+		ps.keywordSearch('대구 관광지', placesSearchCB);
+		ps.keywordSearch('대전 관광지', placesSearchCB);
+		ps.keywordSearch('광주 관광지', placesSearchCB);
+		 */
+
+		// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+		function placesSearchCB(status, data, pagination) {
+			if (status === daum.maps.services.Status.OK) {
+
+				// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+				// LatLngBounds 객체에 좌표를 추가합니다
+				var bounds = new daum.maps.LatLngBounds();
+
+				for (var i = 0; i < data.places.length; i++) {
+					displayMarker(data.places[i]);
+					bounds.extend(new daum.maps.LatLng(data.places[i].latitude,
+							data.places[i].longitude));
+				}
+
+				// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+				map.setBounds(bounds);
+			}
+		}
+
+		// 지도에 마커를 표시하는 함수입니다
+		function displayMarker(place) {
+
+			// 마커를 생성하고 지도에 표시합니다
+			var marker = new daum.maps.Marker(
+					{
+						map : map,
+						position : new daum.maps.LatLng(place.latitude,
+								place.longitude)
+					});
+
+			// 마커에 클릭이벤트를 등록합니다
+			daum.maps.event.addListener(marker, 'click', function() {
+				// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+				infowindow
+						.setContent('<div style="padding:5px;font-size:12px;">'
+								+ place.title + '</div>');
+				infowindow.open(map, marker);
+			});
+		}
+	</script>
 						</div>
-						<div class="panel-footer">
-							푸터
-						</div>
+						<div class="panel-footer">푸터</div>
 					</div>
 				</div>
 				<hr />
@@ -225,7 +434,12 @@
 			</div>
 		</div>
 		<hr />
-	
+
 	</div>
+<%-- 
+	<article>
+		<jsp:include page="../../map/map.jsp"></jsp:include>
+		<jsp:include page="../../map/testt.jsp"></jsp:include>
+	</article> --%>
 </body>
 </html>
