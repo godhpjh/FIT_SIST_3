@@ -5,8 +5,12 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+
+
 </head>
 <body>
-	footer
+	<div style="background-color:black; height: 30px;">
+	</div>
 </body>
+
 </html>

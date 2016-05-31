@@ -14,30 +14,27 @@
 
 </head>
 <body>
-    <!-- HEADER END-->
     <div class="navbar navbar-inverse set-radius-zero">
         <div class="container">
             <div class="navbar-header">
-  
-                <h1><a  href="main.do">FIT</a></h1>
-               
+                <a  href="main.do">
+                	<h1 style="color: white;"> FIT:Foreign Independent Tours</h1>
+                </a>
             </div>
         </div>
     </div>
     
-    <!-- LOGO HEADER END-->
     <section class="menu-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-3">
                     <div class="navbar-collapse collapse ">
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a href="season.do">시즌별</a></li>
+                            <li><a href="main.do">메인</a></li>
+                            <li><a href="season.do">계절별</a></li>
                             <li><a href="theme.do">테마별</a></li>
-                            <li><a href="#">여행추천</a></li>
+                            <li><a href="zone.do">지역별</a></li>
                         </ul>
                     </div>
-                </div>
 
             </div>
         </div>

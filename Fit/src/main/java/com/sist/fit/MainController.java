@@ -20,5 +20,10 @@ public class MainController {
 	public String theme() {
 		return "theme/theme";
 	}
+	
+	@RequestMapping("zone.do")
+	public String zone() {
+		return "zone/zone";
+	}
 
 }

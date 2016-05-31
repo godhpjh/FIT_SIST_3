@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -9,15 +9,139 @@
 <body>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
+
+	<div class="row">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+			<div class="carousel-inner">
+
+				<div class="item active">
+					<img src="assets/img/부산.jpg">
+					<div class="carousel-caption">
+						<h4>
+							<a href="#">Lorem ipsum dolor sit amet consetetur sadipscing</a>
+						</h4>
+						<p>
+							Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+							nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+							erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur
+							sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+							labore et dolore magna aliquyam erat. <a
+								class="label label-primary"
+								href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free
+								Bootstrap Carousel Collection</a>
+						</p>
+					</div>
+				</div>
+
+				<div class="item">
+					<img src="assets/img/수원.jpg">
+					<div class="carousel-caption">
+						<h4>
+							<a href="#">consetetur sadipscing elitr, sed diam nonumy
+								eirmod</a>
+						</h4>
+						<p>
+							Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+							nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+							erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur
+							sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+							labore et dolore magna aliquyam erat. <a
+								class="label label-primary"
+								href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free
+								Bootstrap Carousel Collection</a>
+						</p>
+					</div>
+				</div>
+
+				<div class="item">
+					<img src="assets/img/여수.jpg">
+					<div class="carousel-caption">
+						<h4>
+							<a href="#">tempor invidunt ut labore et dolore</a>
+						</h4>
+						<p>
+							Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+							nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+							erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur
+							sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+							labore et dolore magna aliquyam erat. <a
+								class="label label-primary"
+								href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free
+								Bootstrap Carousel Collection</a>
+						</p>
+					</div>
+				</div>
+
+				<div class="item">
+					<img src="assets/img/인천.jpg">
+					<div class="carousel-caption">
+						<h4>
+							<a href="#">magna aliquyam erat, sed diam voluptua</a>
+						</h4>
+						<p>
+							Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+							nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+							erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur
+							sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+							labore et dolore magna aliquyam erat. <a
+								class="label label-primary"
+								href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free
+								Bootstrap Carousel Collection</a>
+						</p>
+					</div>
+				</div>
+
+				<div class="item">
+					<img src="assets/img/통영.jpg">
+					<div class="carousel-caption">
+						<h4>
+							<a href="#">tempor invidunt ut labore et dolore magna
+								aliquyam erat</a>
+						</h4>
+						<p>
+							Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+							nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+							erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur
+							sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+							labore et dolore magna aliquyam erat. <a
+								class="label label-primary"
+								href="http://sevenx.de/demo/bootstrap-carousel/" target="_blank">Free
+								Bootstrap Carousel Collection</a>
+						</p>
+					</div>
+				</div>
+
+			</div>
 
 
+			<ul class="list-group col-sm-4">
+				<li data-target="#myCarousel" data-slide-to="0"
+					class="list-group-item active"><h4>부산</h4></li>
+				<li data-target="#myCarousel" data-slide-to="1"
+					class="list-group-item"><h4>수원</h4></li>
+				<li data-target="#myCarousel" data-slide-to="2"
+					class="list-group-item"><h4>여수</h4></li>
+				<li data-target="#myCarousel" data-slide-to="3"
+					class="list-group-item"><h4>인천</h4></li>
+				<li data-target="#myCarousel" data-slide-to="4"
+					class="list-group-item"><h4>통영</h4></li>
+			</ul>
+
+			<div class="carousel-controls">
+				<a class="left carousel-control" href="#myCarousel"
+					data-slide="prev"> <span
+					class="glyphicon glyphicon-chevron-left"></span>
+				</a> <a class="right carousel-control" href="#myCarousel"
+					data-slide="next"> <span
+					class="glyphicon glyphicon-chevron-right"></span>
+				</a>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<div id="map" style="width: 100%; height: 700px;"></div> -->
 
 
 	<div class="content-wrapper">
@@ -676,8 +800,6 @@
 
 		</div>
 	</div>
-</body>
-</html>
 			<div class="row">
 				<div class="col-md-6">
 					<div class="panel panel-default">
@@ -1080,6 +1202,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
 </body>
 </html>
