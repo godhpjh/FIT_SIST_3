@@ -5,7 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+
 <script src="assets/js/insta.js"></script>
+
+
 </head>
 <body>
 
@@ -83,7 +86,7 @@
 						<div class="panel panel-default">
 							<div class="panel-heading">인스타 사진 긁은거~</div>
 							<div class="panel-body">
-								<div id="test"></div>
+								<div id="test" name="test"></div>
 							</div>
 						</div>
 					</div>
@@ -102,10 +105,9 @@
 			imageSize : 200,
 			clientID : 'c64c6f7b9c374d29967626c71c4e075b',
 			imageContainer : '#test',
-			includeCaption : false
+			includeCaption : true
 		});
 	</script>
-
 
 </body>
 </html>
