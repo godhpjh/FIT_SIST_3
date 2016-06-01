@@ -271,7 +271,7 @@
 			imageSize : 200,
 			clientID : 'c64c6f7b9c374d29967626c71c4e075b',
 			imageContainer : '#seoul',
-			includeCaption : false
+			includeCaption : true
 		});
 	</script>
 

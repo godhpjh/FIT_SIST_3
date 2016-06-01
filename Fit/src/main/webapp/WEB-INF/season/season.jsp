@@ -173,7 +173,7 @@
 							},
 							tooltip : {
 								shared : true,
-								pointFormat : '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+								pointFormat : '<span style="color:{series.color}">{series.name}: <b></b><br/>'
 							},
 							legend : {
 								align : 'right',
@@ -232,6 +232,13 @@
 												<div class="panel-heading">많이찾는명소</div>
 												<div class="panel-body">
 													<div id="piechart" style="width: 500px; height: 210px;"></div>
+													<div>
+
+											
+													  <img src="naver.png" width="500px" height="210px">
+													  
+													  
+													</div>
 												</div>
 												<div class="panel-footer">Panel Footer</div>
 											</div>

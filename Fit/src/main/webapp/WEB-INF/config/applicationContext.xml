@@ -7,16 +7,32 @@
 	xmlns:task="http://www.springframework.org/schema/task"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:hadoop="http://www.springframework.org/schema/hadoop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.2.xsd
+		http://www.springframework.org/schema/hadoop http://www.springframework.org/schema/hadoop/spring-hadoop.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
-
+	<aop:aspectj-autoproxy/>
 	<context:annotation-config/>
-	<context:component-scan base-package="com.sist.*"/>
-	
+	<context:component-scan base-package="com.sist.*"/>	
+    <hadoop:configuration id="hadoopConf">
+     fs.default.name=hdfs://localhost:9000
+    </hadoop:configuration>
+    <hadoop:job id="localCount"
+      input-path="/input/"
+      output-path="/output/"
+      mapper="com.sist.mapred.NaverMapper"
+      reducer="com.sist.mapred.NaverReducer"
+      configuration-ref="hadoopConf"
+      scope="request"
+    />
+    <hadoop:job-runner 
+     job-ref="localCount"
+      run-at-startup="false"
+    />
 	<!-- properties 파일 읽기 -->
 	<util:properties id="db" location="/WEB-INF/config/db.properties"/>
 	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource" 
