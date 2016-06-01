@@ -235,8 +235,7 @@
 													<div>
 
 											
-													  <img src="naver.png" width="500px" height="210px">
-													  
+													  <img src="R/naver.png" width="500px" height="210px">													  
 													  
 													</div>
 												</div>

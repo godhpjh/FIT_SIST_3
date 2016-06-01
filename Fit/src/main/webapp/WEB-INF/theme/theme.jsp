@@ -86,7 +86,7 @@
 						<div class="panel panel-default">
 							<div class="panel-heading">인스타 사진 긁은거~</div>
 							<div class="panel-body">
-								<div id="test" name="test"></div>
+								<div id="test"></div>
 							</div>
 						</div>
 					</div>
